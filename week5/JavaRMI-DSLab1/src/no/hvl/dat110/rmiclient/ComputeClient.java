@@ -35,9 +35,9 @@ public class ComputeClient {
 			
 			// Look up the registry for the remote object
 			ComputeInterface ci = (ComputeInterface) registry.lookup("ComputeInterface");
-			
 			int sum = ci.addNumbers(a, b);
 			System.out.println("Sum of "+a+" and "+b+" = "+ sum);
+			ci.stop();
 			
 		} catch(RemoteException | NotBoundException e) {
 			System.err.println("Error in RMI "+e.getMessage());

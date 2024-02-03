@@ -36,5 +36,9 @@ public class ComputeImpl extends UnicastRemoteObject implements ComputeInterface
 		return sum;
 	}
 
+	public void stop() throws RemoteException {
+        UnicastRemoteObject.unexportObject(this, true);
+        System.out.println("Shutting down server");
+    }
 
 }

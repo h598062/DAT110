@@ -11,7 +11,6 @@ import java.rmi.registry.Registry;
 
 import no.hvl.dat110.rmiinterface.ComputeInterface;
 
-
 public class ComputeServer {
 	
 	public static void main(String args[]) {
