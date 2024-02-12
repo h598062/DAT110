@@ -10,13 +10,41 @@ Consider a small network with two hosts H1 and H2 and two routers R1 and R2. H1 
 
 Assume that we have some data in a datagram that is to be sent from H1 via R1 and R2 to H2. What encapsulation and decapsulation will happen on the boundaries between the network layer and link layer along the way?
 
+	På H1 blir den kapsulert inn til en frame
+	På R1 blir den de-kapsulert tilbake til et datagram,
+	slik at R1 vet hvor den skal sendes videre,
+	før den igjen kapsulerer den til en frame igjen.
+	Samme skjer på R2.
+	På H2 blir den dekapsulert igjen til et datagram, og prosessert videre.
+
 ### Exercise 2 - Internet protocols and time sequence diagrams
 
 Problem P3 in Chap. 2 of the networking book with the modification that you should draw a [time sequence diagram]( https://en.wikipedia.org/wiki/Sequence_diagram) showing the interaction between the different protocol entities. Time sequence diagrams are widely used in computer science to illustrate the exchange of messages in protocols.
 
+	P3 i den boken eg har funnet e ikke samme som denne oppgaven ber om?
+
 ### Exercise 3 - DNS and HTTP Wireshark
 
 Perform the Wireshark exercises on HTTP and DNS described at <http://www-net.cs.umass.edu/wireshark-labs/Wireshark_HTTP_v8.0.pdf> and <http://www-net.cs.umass.edu/wireshark-labs/Wireshark_DNS_v8.0.pdf>
+
+	HTTP pdf:
+	1. http 1.1
+	2. English, norwegian and chinese???
+	3. my ip: 158.37.228.186 dest: 128.119.245.12
+	4. 200 OK
+	5. Thu, 18 Jan 2024 06:59:01 GMT
+	6. 128 Bytes
+	7. Port (src and dest), size, 
+	8. No, i did not have the IF-MODIFIED-SINCE header
+	9. Yes, the server did send the html page. it can be found in the "line based text data" section of the packet display window.
+	10. Yes, it has the IF-MODIFIED-SINCE header. The data following it is a timestamp of when it was cached in my browser.
+	11. It did not return the page, i found a 304 not modified response which indicates that the browser should display the cached version
+
+	CSS pdf:
+	1. www.aiit.or.kr: 58.229.6.225
+	2. hvl.no: 208.67.222.222
+	3. mail.yahoo.com: 87.248.119.252
+	4. 
 
 ### Exercise 4 - Threads and inter-thread communication
 
@@ -28,7 +56,7 @@ We consider a small (emulated) IoT system consisting of a temperature device (se
 
 An illustration of the system is shown below
 
-![img](iotthreads/iotsystem.jpg)
+![img](assets/iotsystem.jpg)
 
 #### 4.1
 
