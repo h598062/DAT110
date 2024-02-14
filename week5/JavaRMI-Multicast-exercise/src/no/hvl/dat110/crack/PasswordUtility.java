@@ -3,7 +3,7 @@ package no.hvl.dat110.crack;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
 
 public class PasswordUtility {
 	
@@ -34,4 +34,3 @@ public class PasswordUtility {
 		return equal;
 	}
 }
-
