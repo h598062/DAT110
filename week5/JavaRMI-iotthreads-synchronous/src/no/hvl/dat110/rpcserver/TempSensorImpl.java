@@ -1,9 +1,9 @@
 package no.hvl.dat110.rpcserver;
 
+import no.hvl.dat110.rpcinterface.TempSensorInterface;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
-import no.hvl.dat110.rpcinterface.TempSensorInterface;
 
 /**
  * For demonstration purpose in dat110 course
@@ -23,7 +23,6 @@ public class TempSensorImpl extends UnicastRemoteObject implements TempSensorInt
 		super();
 	}
 
-	// TODO
 	// implement the remote methods defined in the interface here
 
 	@Override

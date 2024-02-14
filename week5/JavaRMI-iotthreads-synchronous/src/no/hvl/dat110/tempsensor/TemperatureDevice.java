@@ -4,31 +4,29 @@ package no.hvl.dat110.tempsensor;
 import no.hvl.dat110.rpcinterface.TempSensorInterface;
 
 import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.Locale;
 
 public class TemperatureDevice extends Thread {
 
-	private TemperatureSensor sn;
-	
+	private final TemperatureSensor sn;
+
 	public TemperatureDevice() {
 		this.sn = new TemperatureSensor();
 	}
-	
+
+	@Override
 	public void run() {
-		
+
 		System.out.println("temperature device started");
-		
-		// TODO
+
 		try {
 			// Get a reference to the registry using the port
-			Registry registry = LocateRegistry.getRegistry(9091);
+			Registry registry = LocateRegistry.getRegistry(TempSensorInterface.SERVER_PORT);
 
 			// Look up the registry for the remote object (TempSensorInterface) using the name TempSensorInterface.REMOTE_IFACE_NAME
-			TempSensorInterface tsi = (TempSensorInterface)registry.lookup(TempSensorInterface.REMOTE_IFACE_NAME);
+			TempSensorInterface tsi = (TempSensorInterface) registry.lookup(TempSensorInterface.REMOTE_IFACE_NAME);
 
 			// loop 10 times and read the temp value from the TemperatureSensor each time
 			for (int i = 0; i < 10; i++) {
@@ -43,8 +41,8 @@ public class TemperatureDevice extends Thread {
 			throw new RuntimeException(e);
 		}
 
-		
-		//throw new RuntimeException("RPC TemperatureDevice Client not yet implemented...");
-		
+
+		// throw new RuntimeException("RPC TemperatureDevice Client not yet implemented...");
+
 	}
 }

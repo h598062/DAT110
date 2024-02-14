@@ -8,15 +8,16 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface TempSensorInterface extends Remote {
-	
-	public static final int SERVER_PORT = 9091;
-	
-	public static final String REMOTE_IFACE_NAME = "TempSensorInterface";
-	
-	// TODO
+
+	int SERVER_PORT = 9091;
+
+	String REMOTE_IFACE_NAME = "TempSensorInterface";
+
 	// define the methods that should be remotely invoked here
 
-	int getTemperature() throws RemoteException;
+	int getTemperature()
+	throws RemoteException;
 
-	void setTemperature(int tmp) throws RemoteException;
+	void setTemperature(int tmp)
+	throws RemoteException;
 }
