@@ -10,25 +10,29 @@ public class ClientCallbackImplement extends UnicastRemoteObject implements Clie
 	private static final long serialVersionUID = 1L;
 	private boolean notified = false;
 
-	protected ClientCallbackImplement() throws RemoteException {
+	protected ClientCallbackImplement()
+	throws RemoteException {
 		super();
 	}
 
 	@Override
-	public void notify(String result) throws RemoteException {
+	public void notify(String result)
+	throws RemoteException {
 		System.out.println(result);
 		notified = true;
 	}
 
 	@Override
-	public void acknowledge(String msg) throws RemoteException {
-		
+	public void acknowledge(String msg)
+	throws RemoteException {
+
 		System.out.println(msg);
 	}
 
 	@Override
-	public boolean isNotified() throws RemoteException {
-		
+	public boolean isNotified()
+	throws RemoteException {
+
 		return notified;
 	}
 
