@@ -5,6 +5,7 @@ package no.hvl.dat110.rpcinterface;
  */
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 public interface TempSensorInterface extends Remote {
 	
@@ -15,4 +16,7 @@ public interface TempSensorInterface extends Remote {
 	// TODO
 	// define the methods that should be remotely invoked here
 
+	int getTemperature() throws RemoteException;
+
+	void setTemperature(int tmp) throws RemoteException;
 }
