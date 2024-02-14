@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package no.hvl.dat110.workernodes;
 
@@ -7,7 +7,6 @@ import no.hvl.dat110.rmiserver.PassCrackServer;
 
 /**
  * @author tdoy
- *
  */
 public class WorkerNode2 {
 
