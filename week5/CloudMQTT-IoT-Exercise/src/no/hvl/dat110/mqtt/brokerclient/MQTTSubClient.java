@@ -1,17 +1,26 @@
 package no.hvl.dat110.mqtt.brokerclient;
 
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 
 public class MQTTSubClient implements MqttCallback {
 
 	
 	public MQTTSubClient() throws MqttException {
-		
-		// TODO - see MQTTSubTest
+
+		MqttConnectOptions connOpts = new MqttConnectOptions();
+		connOpts.setCleanSession(true);
+
+		System.out.printf("MQTTSubClient Connecting to broker: %s%n", Config.broker);
+
+		MqttClient client = new MqttClient(Config.broker, Config.sub_clientId, new MemoryPersistence());
+		client.setCallback(this);
+		client.connect(connOpts);
+		System.out.println("MQTTSubClient Connected");
+
+		client.subscribe(Config.topic, Config.qos);
+		System.out.printf("Subscribed to Topic: %s%n", Config.topic);
 	}
 	
 	
@@ -23,11 +32,12 @@ public class MQTTSubClient implements MqttCallback {
 	}
 
 	@Override
-	public void messageArrived(String topic, MqttMessage message) throws Exception {
+	public void messageArrived(String topic, MqttMessage message) throws Exception{
 		
 		// TODO: get the message payload 	
 		// Hint: messageArrived method is a callback function that is called from the MQTT broker
 		// print out the temp (See the MQTTSubTest)
+		System.out.printf("The Temperature is: %s%n", new String(message.getPayload()));
 
 	}
 
