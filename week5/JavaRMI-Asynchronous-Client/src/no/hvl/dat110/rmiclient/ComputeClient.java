@@ -51,9 +51,9 @@ public class ComputeClient {
 				Thread.sleep(1000);
 				System.out.println("RPC Client still busy with other things while waiting for result...");
 			}
-
-			System.out.println("Operation completed! Client will terminate server in 2 sec...");
-
+			
+			System.out.println("Operation completed! Client will stop compute server in 2 sec...");
+			
 			Thread.sleep(2000);
 
 			sc.shutdown();
